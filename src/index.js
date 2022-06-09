@@ -3,6 +3,7 @@ import http from "./api.js";
 import qs from "qs";
 import dotenv from "dotenv";
 async function handler() {
+  core.info("Running handler");
   console.log("running handler");
   const apiKey =
     core.getInput("techcore-api-key") || process.env.TECHCORE_API_KEY;
@@ -42,7 +43,6 @@ async function handler() {
 }
 
 const IS_GITHUB_ACTION = !!process.env.GITHUB_ACTIONS || process.env.DEBUG;
-
 if (IS_GITHUB_ACTION) {
   console.error = (msg) => console.log(`::error::${msg}`);
   console.warn = (msg) => console.log(`::warning::${msg}`);
