@@ -36,7 +36,6 @@ async function handler() {
     github_uri: process.env.GITHUB_REPOSITORY,
     environment,
     image,
-    ...user.data,
   };
   console.log("sending query!", query);
   // const deployment = authorizedRequest.get(`/deployments?{}`);
