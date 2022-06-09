@@ -32,11 +32,13 @@ async function handler() {
   const user = await authorizedRequest.get("/auth/me", {
     headers: { Authorization: `Bearer ${apiTokenSet.data.access_token}` },
   });
-  console.log(process.env);
   const query = {
-    github_uri: "",
+    github_uri: process.env.GITHUB_REPOSITORY,
     environment,
+    image,
+    ...user,
   };
+  console.log("sending query!", query);
   // const deployment = authorizedRequest.get(`/deployments?{}`);
   // await authorizedRequest.post(`/deployment`, {
   //   ...deployment,
