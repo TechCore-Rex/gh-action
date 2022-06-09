@@ -10,6 +10,9 @@ async function handler() {
   const image = core.getInput("image") || process.env.IMAGE;
   const environment = core.getInput("envrionment") || process.env.NAMESPACE;
 
+  console.log(apiKey);
+  console.log(image);
+  console.log(environment);
   const params = new URLSearchParams();
   params.append("grant_type", "api_key");
   params.append("api_key", apiKey);
@@ -18,7 +21,7 @@ async function handler() {
   const apiTokenSet = await unauthorizedRequest
     .post(`/auth/token`, params)
     .catch((e) => {
-      console.error(e);
+      console.log(e);
     });
 
   if (!apiTokenSet) {
