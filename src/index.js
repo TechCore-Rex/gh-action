@@ -21,7 +21,7 @@ async function handler() {
   const apiTokenSet = await unauthorizedRequest
     .post(`/auth/token`, params)
     .catch((e) => {
-      console.log(e);
+      console.log(e.data);
     });
 
   if (!apiTokenSet) {
