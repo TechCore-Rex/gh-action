@@ -8,7 +8,7 @@ async function handler() {
   const apiKey =
     core.getInput("techcore-api-key") || process.env.TECHCORE_API_KEY;
   const image = core.getInput("image") || process.env.IMAGE;
-  const environment = core.getInput("envrionment") || process.env.NAMESPACE;
+  const environment = core.getInput("environment") || process.env.NAMESPACE;
 
   console.log(apiKey);
   console.log(image);
@@ -36,7 +36,7 @@ async function handler() {
     github_uri: process.env.GITHUB_REPOSITORY,
     environment,
     image,
-    ...user,
+    ...user.data,
   };
   console.log("sending query!", query);
   // const deployment = authorizedRequest.get(`/deployments?{}`);
