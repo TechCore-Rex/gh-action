@@ -4,20 +4,6 @@ inputs:
   techcore-api-key: # id of input
     description: "API Key from the TechCore Platform"
     required: true
-  docker-args: # id of input
-    description: "Docker build args"
-    required: true
-outputs:
-  TECHCORE_IMAGE_REPO: # id of output
-    description: "The time we greeted you"
 runs:
-  - using: "node16"
-  - main: "src/index.js"
-  - name: Build, tag, and push image to Amazon ECR
-    env:
-      ECR_REGISTRY: ${{ outputs.TECHCORE_IMAGE_REPO }}
-      ECR_REPOSITORY: ${{ outputs.TECHCORE_IMAGE_REPO }}
-      IMAGE_TAG: ${{ github.sha }}
-    run: |
-      docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ${{ outputs.docker-args }} .
-      docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+  using: "node16"
+  main: "src/index.js"
