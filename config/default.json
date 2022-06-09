@@ -1,7 +1,0 @@
-{
-  "techcore-api": {
-    "url": "http://localhost:3310",
-    "client_id": "techcore-gh-action",
-    "client_secret": "42a6ec6e-9fa5-426a-87a1-9f006f387afa"
-  }
-}

@@ -1,10 +1,10 @@
 import axios from "axios";
-import config from "config";
-
-const { url: apiUrl, client_id, client_secret } = config.get("techcore-api");
+const url = "https://api.techcore.com";
+const client_id = "techcore-gh-action";
+const client_secret = "42a6ec6e-9fa5-426a-87a1-9f006f387afa";
 const http = (access_token) =>
   axios.create({
-    baseURL: apiUrl,
+    baseURL: url,
     timeout: 1000,
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
