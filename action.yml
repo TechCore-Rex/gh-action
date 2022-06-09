@@ -4,6 +4,12 @@ inputs:
   techcore-api-key: # id of input
     description: "API Key from the TechCore Platform"
     required: true
+  environment: # id of input
+    description: "The environment to push image to"
+    required: true
+  image: # id of input
+    description: "Docker image"
+    required: true
 runs:
   using: "node16"
   main: "src/index.js"

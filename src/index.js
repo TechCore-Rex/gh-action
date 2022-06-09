@@ -7,7 +7,7 @@ async function handler() {
   const apiKey =
     core.getInput("techcore-api-key") || process.env.TECHCORE_API_KEY;
   const image = core.getInput("image") || process.env.IMAGE;
-  const namespace = core.getInput("image") || process.env.NAMESPACE;
+  const environment = core.getInput("envrionment") || process.env.NAMESPACE;
 
   const params = new URLSearchParams();
   params.append("grant_type", "api_key");
@@ -31,6 +31,7 @@ async function handler() {
   console.log(process.env);
   const query = {
     github_uri: "",
+    environment,
   };
   // const deployment = authorizedRequest.get(`/deployments?{}`);
   // await authorizedRequest.post(`/deployment`, {
