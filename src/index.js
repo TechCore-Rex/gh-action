@@ -43,14 +43,10 @@ async function handler() {
 }
 
 const IS_GITHUB_ACTION = !!process.env.GITHUB_ACTIONS || process.env.DEBUG;
-console.log(process.env);
-console.log("yes!", IS_GITHUB_ACTION);
 if (IS_GITHUB_ACTION) {
   console.error = (msg) => console.log(`::error::${msg}`);
   console.warn = (msg) => console.log(`::warning::${msg}`);
 } else {
   dotenv.config();
-  handler();
 }
-
-export default handler;
+handler();
