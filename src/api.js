@@ -1,13 +1,16 @@
 import axios from "axios";
-const url = "https://api.techcore.com";
 const client_id = "techcore-gh-action";
 const client_secret = "42a6ec6e-9fa5-426a-87a1-9f006f387afa";
-const http = (access_token) =>
-  axios.create({
-    baseURL: url,
+const http = (access_token) => {
+  const baseURL = process.env.API_URL
+    ? process.env.API_URL
+    : "https://api.techcore.com";
+  console.log("lol", access_token);
+  return axios.create({
+    baseURL,
     timeout: 1000,
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Type": "application/json;charset=utf-8",
       Authorization: !access_token
         ? `Basic ${Buffer.from(`${client_id}:${client_secret}`).toString(
             "base64"
@@ -15,5 +18,6 @@ const http = (access_token) =>
         : `Bearer ${access_token}`,
     },
   });
+};
 
 export default http;
