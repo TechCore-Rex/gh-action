@@ -8,7 +8,7 @@ async function handler() {
   const apiKey =
     core.getInput("techcore-api-key") || process.env.TECHCORE_API_KEY;
   const image = core.getInput("image") || process.env.IMAGE;
-  const environment = core.getInput("environment") || process.env.ENVIRONMENT;
+  const environment = core.getInput("hostname") || process.env.HOSTNAME;
   const repo = process.env.GITHUB_REPOSITORY;
 
   const params = new URLSearchParams();

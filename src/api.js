@@ -8,7 +8,7 @@ const http = (access_token) => {
   console.log("lol", access_token);
   return axios.create({
     baseURL,
-    timeout: 1000,
+    timeout: 10000,
     headers: {
       "Content-Type": "application/json;charset=utf-8",
       Authorization: !access_token
