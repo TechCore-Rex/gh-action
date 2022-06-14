@@ -4,7 +4,6 @@ import qs from "qs";
 import dotenv from "dotenv";
 async function handler() {
   core.info("Running handler");
-  console.log("running handler");
   const apiKey =
     core.getInput("techcore-api-key") || process.env.TECHCORE_API_KEY;
   const image = core.getInput("image") || process.env.IMAGE;
@@ -15,7 +14,6 @@ async function handler() {
   params.append("grant_type", "api_key");
   params.append("api_key", apiKey);
 
-  console.log(process.env.API_URL);
   const unauthorizedRequest = http();
   const apiTokenSet = await unauthorizedRequest.post(`/auth/token`, params, {
     headers: {
@@ -77,7 +75,6 @@ async function handler() {
     );
   }
   deployment.image = image;
-  console.log("updating ", deployment);
   await authorizedRequest.put(`/deployments`, deployment);
 }
 

@@ -5,7 +5,6 @@ const http = (access_token) => {
   const baseURL = process.env.API_URL
     ? process.env.API_URL
     : "https://api.techcore.com";
-  console.log("lol", access_token);
   return axios.create({
     baseURL,
     timeout: 10000,
