@@ -7,7 +7,7 @@ async function handler() {
   const apiKey =
     core.getInput("techcore-api-key") || process.env.TECHCORE_API_KEY;
   const image = core.getInput("image") || process.env.IMAGE;
-  const environment = core.getInput("hostname") || process.env.HOSTNAME;
+  const environment = core.getInput("env-name") || process.env.HOSTNAME;
   const repo = process.env.GITHUB_REPOSITORY;
 
   const params = new URLSearchParams();
@@ -49,7 +49,7 @@ async function handler() {
 
   const namespaceQuery = {
     project: app.project,
-    base_host: environment,
+    name: environment,
   };
   const namespaces = (
     await authorizedRequest.get(`/namespaces?${qs.stringify(namespaceQuery)}`)
