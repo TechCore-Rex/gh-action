@@ -4,8 +4,8 @@ inputs:
   techcore-api-key: # id of input
     description: "API Key from the TechCore Platform"
     required: true
-  hostname: # id of input
-    description: "The hostname to push image to"
+  env-name: # id of input
+    description: "The name of environment to push image to"
     required: true
   image: # id of input
     description: "Docker image"
