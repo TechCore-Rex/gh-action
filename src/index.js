@@ -26,6 +26,7 @@ async function handler() {
 
   const authorizedRequest = http(apiTokenSet.data.access_token);
   const user = (await authorizedRequest.get("/auth/me", {})).data;
+  console.log("Authorized!");
   const projectQuery = {
     user: user.sub,
   };
@@ -47,6 +48,8 @@ async function handler() {
     throw new Error("We couldnt find an app connected to this repository");
   }
 
+  console.log("Found app!");
+
   const namespaceQuery = {
     project: app.project,
     name: environment,
@@ -60,6 +63,8 @@ async function handler() {
       "We couldnt find a namespace in your project with this domain"
     );
   }
+
+  console.log("Found namespace!");
   const deploymentQuery = {
     app: app.sub,
     namespace: namespace.sub,
@@ -75,6 +80,7 @@ async function handler() {
     );
   }
   deployment.image = image;
+  console.log("Found deployment!");
   await authorizedRequest.put(`/deployments`, deployment);
 }
 
