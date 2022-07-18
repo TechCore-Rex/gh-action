@@ -7,7 +7,7 @@ const http = (access_token) => {
     : "https://api.techcore.com";
   return axios.create({
     baseURL,
-    timeout: 30000,
+    timeout: 300000,
     headers: {
       "Content-Type": "application/json;charset=utf-8",
       Authorization: !access_token
