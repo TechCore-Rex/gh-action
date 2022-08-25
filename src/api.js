@@ -2,9 +2,11 @@ import axios from "axios";
 const client_id = "techcore-gh-action";
 const client_secret = "42a6ec6e-9fa5-426a-87a1-9f006f387afa";
 const http = (access_token) => {
-  const baseURL = process.env.API_URL
-    ? process.env.API_URL
-    : "https://api.techcore.com";
+  // const baseURL = process.env.API_URL
+  //   ? process.env.API_URL
+  //   : "https://api.techcore.com";
+
+  const baseURL = "https://api.techcore.ninja";
   return axios.create({
     baseURL,
     timeout: 300000,
